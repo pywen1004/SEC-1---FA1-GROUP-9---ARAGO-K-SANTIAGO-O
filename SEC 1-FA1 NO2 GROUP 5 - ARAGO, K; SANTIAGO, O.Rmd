@@ -1,0 +1,31 @@
+---
+title: "SEC 1-FA1 number 2 GROUP 9"
+author: "Arago, Kian; Santiago, Owen"
+date: "2025-02-02"
+output: html_document
+---
+
+[GitHub Repository](https://github.com/pywen1004/SEC-1---FA1-GROUP-9---ARAGO-K-SANTIAGO-O)  
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+female_scores <- c(57, 59, 78, 79, 60, 65, 68, 71, 75, 48, 51, 55, 56, 41, 43, 44, 75, 78, 80, 81, 83, 83, 85) 
+male_scores <- c(48, 49, 49, 30, 30, 31, 32, 35, 37, 41, 86, 42, 51, 53, 56, 42, 44, 50, 51, 65, 67, 51, 56, 58, 64, 64, 75)
+
+cat("Stem-and-Leaf Plot for Females:\n")
+stem(female_scores)
+
+cat("\nStem-and-Leaf Plot for Males:\n")
+stem(male_scores)
+
+boxplot(female_scores, male_scores, 
+        names = c("Females", "Males"), 
+        col = c("pink", "lightblue"), 
+        main = "Boxplot of Java Exam Scores by Gender",
+        ylab = "Scores")
+
+abline(h = median(female_scores), col = "red", lty = 2) 
+abline(h = median(male_scores), col = "blue", lty = 2)
+```
