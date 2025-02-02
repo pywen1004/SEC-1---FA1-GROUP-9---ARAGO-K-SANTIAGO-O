@@ -1,0 +1,33 @@
+---
+title: "Formative Assessment # 1"
+author: "Arago & Santiago"
+date: "2025-02-02"
+output:
+  html_document: default
+  word_document: default
+---
+
+- Item 1 :
+ Write the skewness program, and use it to calculate the skewness coefficient of the four examination subjects in results.txt (results.csv). What can you say about these data?
+Pearson has given an approximate formula for the skewness that is easier to calculate than the exact formula given in Equation 2.1.
+
+```{r setup, include=TRUE}
+
+results <- read.table("results.txt", header=TRUE, na.strings="NA")
+
+pearson_skewness <- function(x) {
+  x <- na.omit(x)
+  mean_x <- mean(x)
+  median_x <- median(x)
+  sd_x <- sd(x)
+  return(3 * (mean_x - median_x) / sd_x)
+}
+
+skewness_values <- sapply(results[, 2:5], pearson_skewness)
+```
+```{r}
+summary(results[2:5])
+skewness_values
+```
+
+The interpretation of this result is that it is left-skewed, which means that there are more high scores and only some low outliers.
